@@ -52,7 +52,7 @@ const features = [
     icon: Cpu,
     title: "Built for scale",
     description:
-      "A SaaS-ready architecture with Prisma + Postgres foundations.",
+      "A SaaS-ready architecture with Drizzle + Postgres foundations.",
   },
   {
     icon: Zap,
@@ -109,34 +109,21 @@ export default function Home() {
               AI SaaS
             </Badge>
           </Link>
-
-          <div className="hidden items-center gap-6 text-sm text-muted-foreground md:flex">
-            <a className="hover:text-foreground" href="#features">
-              Features
-            </a>
-            <a className="hover:text-foreground" href="#workflow">
-              Workflow
-            </a>
-            <a className="hover:text-foreground" href="#pricing">
-              Pricing
-            </a>
-          </div>
-
           <div className="flex items-center gap-2">
             <Button variant="ghost" size="sm" asChild>
-              <a href="#pricing">See plans</a>
+              <Link href="#pricing">See plans</Link>
             </Button>
             <Button size="sm" asChild>
-              <a href="#cta">
+              <Link href="/login">
                 Get started <ArrowRight className="size-4" />
-              </a>
+              </Link>
             </Button>
           </div>
         </nav>
       </header>
 
       <main>
-        <section className="mx-auto max-w-6xl px-4 pt-14 pb-10 sm:px-6 sm:pt-20 lg:px-8 lg:pt-24">
+        <section className="mx-auto max-w-6xl px-4 pt-14 pb-10 sm:px-6 sm:pt-20 lg:px-8 lg:pt-24 mt-10">
           <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
             <div className="motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-4 motion-safe:duration-700">
               <div className="flex flex-wrap items-center gap-2">
@@ -159,12 +146,12 @@ export default function Home() {
 
               <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
                 <Button size="lg" asChild>
-                  <a href="#cta">
+                  <Link href="#cta">
                     Start practicing <ArrowRight className="size-4" />
-                  </a>
+                  </Link>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
-                  <a href="#features">Explore features</a>
+                  <Link href="#features">Explore features</Link>
                 </Button>
               </div>
 
@@ -259,134 +246,14 @@ export default function Home() {
                 </CardContent>
                 <CardFooter className="justify-between border-t">
                   <span className="text-sm text-muted-foreground">
-                    Built with Next.js + Prisma
+                    Built with Next.js + Drizzle
                   </span>
                   <Button variant="secondary" size="sm" asChild>
-                    <a href="#features">See more</a>
+                    <Link href="#features">See more</Link>
                   </Button>
                 </CardFooter>
               </Card>
             </div>
-          </div>
-        </section>
-
-        <section id="features" className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
-          <div className="flex items-end justify-between gap-6">
-            <div>
-              <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-                Everything you need to ship a coding SaaS
-              </h2>
-              <p className="mt-2 max-w-2xl text-muted-foreground">
-                A modern foundation for an AI-first LeetCode-style platform.
-              </p>
-            </div>
-            <Badge variant="secondary" className="hidden sm:inline-flex">
-              Bold Tech theme
-            </Badge>
-          </div>
-
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {features.map((feature) => {
-              const Icon = feature.icon;
-              return (
-                <Card
-                  key={feature.title}
-                  className="transition-transform motion-safe:hover:-translate-y-0.5"
-                >
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-3">
-                      <span className="grid size-10 place-items-center rounded-lg border bg-background shadow-sm">
-                        <Icon className="size-4 text-primary" />
-                      </span>
-                      {feature.title}
-                    </CardTitle>
-                    <CardDescription>{feature.description}</CardDescription>
-                  </CardHeader>
-                </Card>
-              );
-            })}
-          </div>
-        </section>
-
-        <section id="workflow" className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
-          <div className="grid gap-6 lg:grid-cols-3">
-            <Card className="lg:col-span-1">
-              <CardHeader>
-                <CardTitle>Designed for flow</CardTitle>
-                <CardDescription>
-                  A predictable loop that keeps you learning.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <div className="flex items-start gap-3">
-                  <Badge variant="secondary">1</Badge>
-                  <div>
-                    <div className="font-medium">Pick a track</div>
-                    <div className="text-sm text-muted-foreground">
-                      DSA, system design, or language paths.
-                    </div>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Badge variant="secondary">2</Badge>
-                  <div>
-                    <div className="font-medium">Solve with guardrails</div>
-                    <div className="text-sm text-muted-foreground">
-                      Get hints without spoilers.
-                    </div>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Badge variant="secondary">3</Badge>
-                  <div>
-                    <div className="font-medium">Review and iterate</div>
-                    <div className="text-sm text-muted-foreground">
-                      Explanations and improvements that stick.
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="lg:col-span-2">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Sparkles className="size-4 text-primary" />
-                  Built for ambitious product teams
-                </CardTitle>
-                <CardDescription>
-                  From landing page → auth → billing → practice sessions.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <div className="rounded-xl border bg-background/60 p-4">
-                    <div className="text-sm font-medium">Founder-friendly</div>
-                    <div className="mt-1 text-sm text-muted-foreground">
-                      Clean UI primitives, composable sections, fast iteration.
-                    </div>
-                  </div>
-                  <div className="rounded-xl border bg-background/60 p-4">
-                    <div className="text-sm font-medium">Interview-ready</div>
-                    <div className="mt-1 text-sm text-muted-foreground">
-                      Problem sets, constraints, and performance focus.
-                    </div>
-                  </div>
-                  <div className="rounded-xl border bg-background/60 p-4">
-                    <div className="text-sm font-medium">AI-first</div>
-                    <div className="mt-1 text-sm text-muted-foreground">
-                      Coaching tone, progressive hints, and explainers.
-                    </div>
-                  </div>
-                  <div className="rounded-xl border bg-background/60 p-4">
-                    <div className="text-sm font-medium">Production-minded</div>
-                    <div className="mt-1 text-sm text-muted-foreground">
-                      Prisma + Postgres workflow with safe deploy migrations.
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
           </div>
         </section>
 
@@ -442,7 +309,7 @@ export default function Home() {
               </CardContent>
               <CardFooter>
                 <Button variant="outline" className="w-full" asChild>
-                  <a href="#cta">Create account</a>
+                  <Link href="#cta">Create account</Link>
                 </Button>
               </CardFooter>
             </Card>
@@ -456,7 +323,7 @@ export default function Home() {
                 <CardDescription>AI coaching that compounds.</CardDescription>
               </CardHeader>
               <CardContent className="space-y-3">
-                <div className="text-4xl font-semibold tracking-tight">$19</div>
+                <div className="text-4xl font-semibold tracking-tight">$4.99</div>
                 <Separator />
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li>AI hints & explanations</li>
@@ -466,18 +333,18 @@ export default function Home() {
               </CardContent>
               <CardFooter>
                 <Button className="w-full" asChild>
-                  <a href="#cta">Upgrade to Pro</a>
+                  <Link href="#cta">Upgrade to Pro</Link>
                 </Button>
               </CardFooter>
             </Card>
 
             <Card>
               <CardHeader>
-                <CardTitle>Team</CardTitle>
+                <CardTitle>Elite</CardTitle>
                 <CardDescription>For cohorts and small teams.</CardDescription>
               </CardHeader>
               <CardContent className="space-y-3">
-                <div className="text-4xl font-semibold tracking-tight">$49</div>
+                <div className="text-4xl font-semibold tracking-tight">$9.99</div>
                 <Separator />
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li>Team workspaces</li>
@@ -487,76 +354,25 @@ export default function Home() {
               </CardContent>
               <CardFooter>
                 <Button variant="outline" className="w-full" asChild>
-                  <a href="#cta">Contact sales</a>
+                  <Link href="#cta">Upgrade to Elite</Link>
                 </Button>
               </CardFooter>
             </Card>
           </div>
         </section>
-
-        <section id="cta" className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
-          <Card className="relative overflow-hidden">
-            <div className="pointer-events-none absolute inset-0 bg-linear-to-r from-primary/15 via-accent/10 to-secondary/25" />
-            <CardContent className="relative px-6 py-12 sm:px-10">
-              <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
-                <div>
-                  <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-                    Build your streak. Ship better solutions.
-                  </h2>
-                  <p className="mt-2 max-w-2xl text-muted-foreground">
-                    Launch your AI-powered coding platform with a premium UI and a modern data stack.
-                  </p>
-                </div>
-                <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-                  <Button size="lg" className="w-full sm:w-auto" asChild>
-                    <a href="#">Start now</a>
-                  </Button>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="w-full sm:w-auto"
-                    asChild
-                  >
-                    <a href="#features">See what you get</a>
-                  </Button>
-                </div>
-              </div>
-
-              <div className="mt-8 grid gap-3 sm:grid-cols-3">
-                <div className="rounded-xl border bg-background/60 p-4">
-                  <div className="text-sm font-medium">Responsive UI</div>
-                  <div className="mt-1 text-sm text-muted-foreground">
-                    Looks sharp on mobile and desktop.
-                  </div>
-                </div>
-                <div className="rounded-xl border bg-background/60 p-4">
-                  <div className="text-sm font-medium">Theme tokens</div>
-                  <div className="mt-1 text-sm text-muted-foreground">
-                    Uses your `globals.css` palette.
-                  </div>
-                </div>
-                <div className="rounded-xl border bg-background/60 p-4">
-                  <div className="text-sm font-medium">Shadcn components</div>
-                  <div className="mt-1 text-sm text-muted-foreground">
-                    Composable, production-friendly building blocks.
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </section>
       </main>
 
       <footer className="border-t">
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-10 text-sm text-muted-foreground sm:px-6 lg:px-8">
-          <div className="inline-flex items-center gap-2">
-            <span className="grid size-8 place-items-center rounded-lg border bg-card shadow-sm">
-              <Code2 className="size-4 text-primary" />
-            </span>
-            <span>NextCode Platform</span>
-          </div>
-          <div className="text-right">
-            <span>© {new Date().getFullYear()} NextCode</span>
+        <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:px-8">
+          <div className="flex flex-col gap-3 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+            <div className="inline-flex items-center gap-2">
+              <span className="grid size-8 place-items-center rounded-lg border bg-card shadow-sm">
+                <Code2 className="size-4 text-primary" />
+              </span>
+              <span>NextCode Platform</span>
+            </div>
+
+            <span className="sm:text-right">© {new Date().getFullYear()} NextCode</span>
           </div>
         </div>
       </footer>
